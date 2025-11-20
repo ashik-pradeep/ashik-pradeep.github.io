@@ -1,44 +1,163 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Ashik Pradeep | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ashik Pradeep — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial; margin: 40px; }
-    h1 { color: #333; }
-    .section { margin-bottom: 30px; }
+    :root{
+      --bg:#0f1720;
+      --card:#111827;
+      --muted:#9ca3af;
+      --accent:#06b6d4;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial;background:linear-gradient(180deg,var(--bg),#071018);color:#e6eef6;padding:28px}
+    .container{max-width:980px;margin:28px auto}
+    header{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .avatar{width:86px;height:86px;border-radius:12px;background:linear-gradient(135deg,#0ea5a4,#3b82f6);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:24px;box-shadow:0 6px 18px rgba(2,6,23,0.6);flex:0 0 86px;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .title h1{margin:0;font-size:20px}
+    .title p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    nav .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+    main{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:14px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:0 6px 26px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .about p{color:var(--muted);line-height:1.6;margin:8px 0 0}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{padding:8px 10px;border-radius:999px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);color:#dbeafe;font-size:13px}
+    .projects{display:grid;gap:12px;margin-top:10px}
+    .proj{display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));transition:transform .28s ease,box-shadow .28s ease;border:1px solid rgba(255,255,255,0.02)}
+    .proj:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .proj h3{margin:0;font-size:15px}
+    .proj p{margin:0;color:var(--muted);font-size:13px}
+    aside .contact{display:flex;flex-direction:column;gap:10px}
+    .download{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#041025;text-decoration:none;font-weight:700;box-shadow:0 10px 30px rgba(12,19,26,0.55)}
+    .meta{color:var(--muted);font-size:14px}
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+    @media (max-width:880px){main{grid-template-columns:1fr;padding-bottom:50px}.avatar{width:72px;height:72px}.title h1{font-size:18px}}
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+    /* subtle moving background */
+    body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 10% 20%, rgba(124,58,237,0.06), transparent 10%),radial-gradient(circle at 80% 80%, rgba(6,182,212,0.04), transparent 12%);mix-blend-mode:screen;animation:bgShift 12s linear infinite}
+    @keyframes bgShift{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(10px) rotate(2deg)}100%{transform:translateY(0) rotate(0deg)}}
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar" id="avatar">
+          <img src="avatar.jpg" alt="Ashik Pradeep" onerror="this.style.display='none'">
+          <span id="initials" style="display:none">AP</span>
+        </div>
+        <div class="title">
+          <h1>👋 Hi, I'm <strong>Ashik Pradeep</strong></h1>
+          <p>B.Tech ECE Graduate (2025) · Automation · Embedded Systems · UAV</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="https://github.com/ashik-pradeep" target="_blank" rel="noreferrer">Github</a>
+        <a class="btn" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+      </nav>
+    </header>
 
-<h1>👋 Hi, I'm Ashik Pradeep</h1>
-<p>B.Tech ECE Graduate (2025) | Automation | Embedded Systems | UAV</p>
+    <main>
+      <section>
+        <div class="card about reveal">
+          <h2 style="margin:0 0 8px">📘 About</h2>
+          <p>Electronics & Communication Engineer with hands-on experience in Yokogawa DCS & SCADA, UAV assembly and field-testing, and embedded systems. I build practical solutions for automation and IoT problems.</p>
 
-<div class="section">
-  <h2>📘 About Me</h2>
-  <p>Electronics & Communication Engineer with experience in UAV, DCS, SCADA, IoT and embedded systems.</p>
-</div>
+          <div style="margin-top:14px">
+            <h3 style="margin:0 0 8px">🛠 Skills</h3>
+            <div class="skills">
+              <span class="chip">Yokogawa DCS</span>
+              <span class="chip">SCADA / HMI</span>
+              <span class="chip">PLC</span>
+              <span class="chip">Arduino</span>
+              <span class="chip">Vivado</span>
+              <span class="chip">Power BI</span>
+              <span class="chip">Drone Assembly</span>
+            </div>
+          </div>
+        </div>
 
-<div class="section">
-  <h2>🛠 Skills</h2>
-  <ul>
-    <li>Yokogawa DCS & SCADA</li>
-    <li>PLC & Automation</li>
-    <li>Arduino & Embedded Systems</li>
-    <li>IoT Systems</li>
-    <li>Drone Assembly</li>
-    <li>Power BI & Excel</li>
-  </ul>
-</div>
+        <div class="card projects reveal" style="margin-top:16px">
+          <h2 style="margin:0 0 12px">📂 Projects</h2>
 
-<div class="section">
-  <h2>📂 Projects</h2>
-  <ul>
-    <li><strong>UAV-based Weed Control System for Precision Agriculture</strong></li>
-    <li>IoT Street Light Fault Monitoring & Location Tracking</li>
-  </ul>
-</div>
+          <article class="proj">
+            <h3>UAV-based Weed Control System for Precision Agriculture</h3>
+            <p>Designed, assembled and field-tested a UAV capable of identifying weed patches and enabling targeted spraying to reduce labour and chemical use.</p>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <a href="https://github.com/ashik-pradeep/uav-weed-control" target="_blank" rel="noreferrer" class="chip">Repo</a>
+              <span class="chip">Arduino · Flight control · GPS</span>
+            </div>
+          </article>
 
-<div class="section">
-  <h2>📞 Contact</h2>
-  <p>Email: ashikpradeep2002@gmail.com</p>
-</div>
+          <article class="proj">
+            <h3>IoT Street Light Fault Monitoring & Location Tracking</h3>
+            <p>Real-time fault detection and GPS-based location reporting to streamline maintenance and reduce downtime in urban lighting.</p>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <a href="https://github.com/ashik-pradeep/iot-streetlight-monitor" target="_blank" rel="noreferrer" class="chip">Repo</a>
+              <span class="chip">ESP32 · MQTT · Power BI</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <h3>Arduino-Based Embedded System Project</h3>
+            <p>Sensor interfacing, data acquisition and microcontroller programming for real-time monitoring experiments and academic projects.</p>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <a href="#" class="chip">Details</a>
+              <span class="chip">Sensors · Serial logging</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card contact reveal">
+          <h2 style="margin:0 0 8px">📞 Contact</h2>
+          <div class="meta">Email</div>
+          <div style="margin-bottom:10px">ashikpradeep2002@gmail.com</div>
+          <div class="meta">Location</div>
+          <div style="margin-bottom:10px">Alappuzha, Kerala, India</div>
+          <a class="download" href="ASHIK_RESUME.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">IELTS 6.5 · CGPA 7.09 · Placed at Agappe Diagnostics</div>
+        </div>
+
+        <div class="card reveal" style="margin-top:14px">
+          <h3 style="margin:0 0 10px">Quick Links</h3>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a class="chip" href="https://github.com/ashik-pradeep" target="_blank">View GitHub</a>
+            <a class="chip" href="https://www.linkedin.com/in/your-linkedin" target="_blank">View LinkedIn</a>
+            <a class="chip" href="mailto:ashikpradeep2002@gmail.com">Email me</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>Built with ❤️ · Available for internships & apprenticeships</footer>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const img = document.querySelector('.avatar img');
+      const initials = document.getElementById('initials');
+      if(!img || (img.complete && img.naturalWidth === 0)){
+        initials.style.display = 'block';
+        const av = document.getElementById('avatar');
+        av.style.background = 'linear-gradient(135deg,#06b6d4,#7c3aed)';
+        av.textContent = 'AP';
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
